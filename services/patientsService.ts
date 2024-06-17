@@ -1,5 +1,6 @@
 import patientsData from '../data/patients';
 import { PatientEntry, PublicPatient, NewPatientEntry } from '../types/types';
+import { v1 as uuid } from 'uuid';
 
 const patients: PatientEntry[] = patientsData;
 
@@ -15,7 +16,7 @@ const getPublicPatients = (): PublicPatient[] => {
 
 const addPatient = (entry: NewPatientEntry): PatientEntry => {
   const newPatientEntry = {
-    id: Math.random().toString(36).substring(7),
+    id: (uuid as () => string)(),
     ...entry
   };
 
