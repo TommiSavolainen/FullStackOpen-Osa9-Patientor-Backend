@@ -9,6 +9,15 @@ patientsRouter.get('/', (_req, res) => {
   res.send(patientsService.getPublicPatients());
 });
 
+patientsRouter.get('/:id', (req, res) => {
+  const patient = patientsService.getEntries().find(p => p.id === req.params.id);
+  if (patient) {
+    res.send(patient);
+  } else {
+    res.sendStatus(404);
+  }
+});
+
 patientsRouter.post('/', (req, res) => {
   console.log(req.body);
   try {

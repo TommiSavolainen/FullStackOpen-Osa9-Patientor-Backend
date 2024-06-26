@@ -39,7 +39,8 @@ const toNewPatientEntry = ({name, dateOfBirth, ssn, gender, occupation}: NewPati
     dateOfBirth: parseDate(dateOfBirth),
     ssn: parseString(ssn),
     gender: parseGender(gender),
-    occupation: parseString(occupation)
+    occupation: parseString(occupation),
+    entries: []
     };
 };
 
