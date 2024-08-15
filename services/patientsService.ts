@@ -30,7 +30,11 @@ const addEntryToPatient = (patientId: string, entry: Entry): PatientEntry => {
   if (!patient) {
     throw new Error(`Patient with id ${patientId} not found`);
   }
-  patient.entries.push(entry);
+  const newPatientEntry = {
+    ...entry,
+    id: (uuid as () => string)(),
+  };
+  patient.entries.push(newPatientEntry);
   return patient;
 };
 
